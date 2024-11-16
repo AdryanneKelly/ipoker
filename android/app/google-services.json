@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "680254147213",
+    "project_id": "ipoker-2334f",
+    "storage_bucket": "ipoker-2334f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:680254147213:android:f62f77e9e6aab777f9f0c4",
+        "android_client_info": {
+          "package_name": "com.example.planning_poker_ifood"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVCRme5FtfYYuDfHTmLZLWAPNht5MNxM4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
