@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:planning_poker_ifood/src/app/features/auth/data/datasources/auth_remote_datasource.dart';
-import 'package:planning_poker_ifood/src/app/features/auth/data/models/user_model.dart';
-import 'package:planning_poker_ifood/src/app/features/auth/domain/entities/user_entity.dart';
+import 'package:planning_poker_ifood/src/core/features/user/data/models/user_model.dart';
+import 'package:planning_poker_ifood/src/core/features/user/domain/entities/user_entity.dart';
 import 'package:planning_poker_ifood/src/app/features/auth/domain/repositories/auth_repository_interface.dart';
 import 'package:planning_poker_ifood/src/core/exceptions/auth_exception.dart';
 import 'package:planning_poker_ifood/src/core/typedefs/typedefs.dart';

@@ -1,4 +1,4 @@
-import 'package:planning_poker_ifood/src/app/features/auth/domain/entities/user_entity.dart';
+import 'package:planning_poker_ifood/src/core/features/user/domain/entities/user_entity.dart';
 import 'package:planning_poker_ifood/src/core/typedefs/typedefs.dart';
 
 abstract interface class IAuthRepository {
