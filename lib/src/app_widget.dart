@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:planning_poker_ifood/src/app/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:planning_poker_ifood/src/app/features/room/presentation/bloc/room_bloc.dart';
 import 'package:planning_poker_ifood/src/core/DI/dependence_injector.dart';
 import 'package:planning_poker_ifood/src/routes.dart';
 
@@ -13,7 +14,10 @@ class AppWidget extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => injector<AuthBloc>(),
-        )
+        ),
+        BlocProvider(
+          create: (context) => injector<RoomBloc>(),
+        ),
       ],
       child: MaterialApp.router(
         title: 'iPoker',
