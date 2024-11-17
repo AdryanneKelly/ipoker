@@ -18,7 +18,7 @@ class _SplashPageState extends State<SplashPage> {
     // TODO: implement initState
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (firebaseAuth.currentUser != null) {
-        router.go('/home');
+        router.go('/room');
       } else {
         router.go('/login');
       }
