@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:planning_poker_ifood/src/app/features/auth/presentation/pages/login_page.dart';
 import 'package:planning_poker_ifood/src/app/features/auth/presentation/pages/register_page.dart';
 import 'package:planning_poker_ifood/src/app/features/room/presentation/pages/create_room_page.dart';
+import 'package:planning_poker_ifood/src/app/features/room/presentation/pages/join_room_page.dart';
 import 'package:planning_poker_ifood/src/app/features/room/presentation/pages/room_page.dart';
 import 'package:planning_poker_ifood/src/core/features/splash/pages/splash_page.dart';
 
@@ -19,6 +20,7 @@ final router = GoRouter(
       builder: (context, state) => const RoomPage(),
       routes: [
         GoRoute(path: 'create-room', builder: (context, state) => const CreateRoomPage()),
+        GoRoute(path: 'join-room', builder: (context, state) => const JoinRoomPage()),
       ],
     ),
   ],
