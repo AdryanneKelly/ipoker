@@ -21,6 +21,7 @@ class AppWidget extends StatelessWidget {
       ],
       child: MaterialApp.router(
         title: 'iPoker',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
