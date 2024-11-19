@@ -21,7 +21,7 @@ Para a base de dados, estou utilizando Firebase, por ser rápido e prático de u
 
 ## Pendencias
 
-Com o prazo, infelizmente não pude concluir algumas coisas, ainda precisava refatorar algumas partes do código para se adequar a estrutura (então se acharem algo pavoroso por ai me perdoem), finalizar os estilos padrões de tela, ajustes de layout e fazer a parte dos testes.
+Com o prazo, infelizmente não pude concluir algumas coisas, ainda precisava refatorar algumas partes do código para se adequar a estrutura (então se acharem algo pavoroso por ai me perdoem), finalizar os estilos padrões de tela, ajustes de layout e fazer a parte dos testes. Com mais tempo também faria uma versao web da aplicação.
 
 ### Desde já, muito obrigada ❤️
 
