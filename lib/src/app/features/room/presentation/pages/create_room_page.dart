@@ -49,7 +49,7 @@ class _CreateRoomPageState extends State<CreateRoomPage> {
                       return null;
                     },
                     decoration: const InputDecoration(
-                      labelText: 'Room Name',
+                      labelText: 'Nome da sala',
                     ),
                   ),
                   const SizedBox(height: 20),
@@ -112,14 +112,14 @@ class _CreateRoomPageState extends State<CreateRoomPage> {
                                           Navigator.pop(context);
                                         }
                                       },
-                                      child: const Text('Add Task')),
+                                      child: const Text('Adicionar tarefa')),
                                 ],
                               ),
                             );
                           },
                         );
                       },
-                      child: const Text('Add Task')),
+                      child: const Text('Adicionar tarefa')),
                   ElevatedButton(
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
@@ -135,7 +135,7 @@ class _CreateRoomPageState extends State<CreateRoomPage> {
                           Navigator.pop(context);
                         }
                       },
-                      child: const Text('Create Room')),
+                      child: const Text('Criar Sala')),
                 ],
               ),
             ),

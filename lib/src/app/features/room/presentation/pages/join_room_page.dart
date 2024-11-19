@@ -47,9 +47,6 @@ class _JoinRoomPageState extends State<JoinRoomPage> {
     final size = MediaQuery.sizeOf(context);
     final user = firebaseAuth.currentUser;
     final isModerator = user?.uid == widget.room.moderator.id;
-    log('key room: ${widget.room.uid}');
-    //final tasks = firebaseFirestore.collection('tasks').where('roomId', isEqualTo: widget.room.uid).snapshots();
-    //vEO0rLrRlpIAjtf7PKJF
     return LoadingStart(
       onInit: () {
         taskBloc.add(GetTasks(roomId: widget.room.uid, collection: 'tasks'));
@@ -101,19 +98,22 @@ class _JoinRoomPageState extends State<JoinRoomPage> {
                                   child: SizedBox(
                                     width: size.width * 0.7,
                                     child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Task: ${task.title}',
+                                          task.title,
                                           style: GoogleFonts.nunito(
                                             fontSize: 16,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
                                         const SizedBox(height: 10),
-                                        Text(
-                                          task.description,
-                                          style: GoogleFonts.nunito(
-                                            fontSize: 16,
+                                        Expanded(
+                                          child: Text(
+                                            task.description,
+                                            style: GoogleFonts.nunito(
+                                              fontSize: 16,
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -352,17 +352,17 @@ class _JoinRoomPageState extends State<JoinRoomPage> {
                     }
 
                     if (!snapshot.hasData || snapshot.data == null) {
-                      return const Center(child: Text('No data found.'));
+                      return const Center(child: Text('Nenhum dado encontrado'));
                     }
 
                     final roomData = snapshot.data?.data() as Map<String, dynamic>?;
                     if (roomData == null) {
-                      return const Center(child: Text('Room data not available.'));
+                      return const Center(child: Text('Dados da sala não encontrados'));
                     }
 
                     final participantsData = roomData['participants'] as List<dynamic>?;
                     if (participantsData == null || participantsData.isEmpty) {
-                      return const Center(child: Text('No participants available.'));
+                      return const Center(child: Text('Sem participantes na sala'));
                     }
 
                     final participants = participantsData.map((participant) {
@@ -370,8 +370,6 @@ class _JoinRoomPageState extends State<JoinRoomPage> {
                     }).toList();
 
                     this.participants = participants;
-
-                    log('participants: $participants');
 
                     return GridView.builder(
                       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

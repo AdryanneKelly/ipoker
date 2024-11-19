@@ -117,13 +117,6 @@ class _RoomPageState extends State<RoomPage> {
                                         return const CircularProgressIndicator();
                                       }
                                       return ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: Colors.red,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(10),
-                                          ),
-                                          minimumSize: Size(size.width, 50),
-                                        ),
                                         onPressed: () {
                                           if (formKey.currentState!.validate()) {
                                             roomBloc.add(
