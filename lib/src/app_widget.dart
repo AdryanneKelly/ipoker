@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:planning_poker_ifood/src/app/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:planning_poker_ifood/src/app/features/room/presentation/bloc/room_bloc.dart';
 import 'package:planning_poker_ifood/src/core/DI/dependence_injector.dart';
+import 'package:planning_poker_ifood/src/core/features/task/presentation/bloc/task_bloc.dart';
+import 'package:planning_poker_ifood/src/core/themes/app_theme.dart';
 import 'package:planning_poker_ifood/src/routes.dart';
 
 class AppWidget extends StatelessWidget {
@@ -18,14 +20,14 @@ class AppWidget extends StatelessWidget {
         BlocProvider(
           create: (context) => injector<RoomBloc>(),
         ),
+        BlocProvider(
+          create: (context) => injector<TaskBloc>(),
+        ),
       ],
       child: MaterialApp.router(
         title: 'iPoker',
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
+        theme: AppTheme.light,
         routerConfig: router,
       ),
     );
