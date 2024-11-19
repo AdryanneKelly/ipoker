@@ -6,14 +6,21 @@ class UserModel extends UserEntity {
     required super.id,
     required super.name,
     required super.email,
+    super.point,
   });
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
-    return UserModel(
-      id: map['id'],
-      name: map['name'],
-      email: map['email'],
+    try {
+      return UserModel(
+        id: map['uid'] as String,
+        email: map['email'] as String,
+        name: map['name'] as String,
+        point: map['point'] != null ? map['point'] as int : null,
     );
+  
+    } catch (e, s) {
+      throw Exception('Error parsing UserModel: $e - $s');
+    }
   }
 
   factory UserModel.fromCredential(UserCredential credential) {
@@ -26,9 +33,24 @@ class UserModel extends UserEntity {
 
   Map<String, dynamic> toMap() {
     return {
-      'id': id,
+      'uid': id,
+      'point': point,
       'name': name,
       'email': email,
     };
+  }
+
+  UserModel copyWith({
+    String? id,
+    String? email,
+    String? name,
+    int? point,
+  }) {
+    return UserModel(
+      id: id ?? this.id,
+      email: email ?? this.email,
+      name: name ?? this.name,
+      point: point ?? this.point,
+    );
   }
 }

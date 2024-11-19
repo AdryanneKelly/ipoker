@@ -35,4 +35,10 @@ class UserRemoteDatasource implements IFirebase {
       {required String collection, required String document, required Map<String, dynamic> data}) async {
     await _firebaseFirestore.collection(collection).doc(document).update(data);
   }
+  
+  @override
+  Future<List<Map<String, dynamic>>> getByUser({required String collection, required String userId}) {
+    // TODO: implement getByUser
+    throw UnimplementedError();
+  }
 }
