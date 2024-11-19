@@ -12,6 +12,18 @@
 
 ## Sobre o projeto
 
+Neste projeto decidi por fazer uma solução de modo em que fosse possível criar salas ou entrar nelas, como mostrado nas fotos acima. Quem cria a sala automaticamente se torna moderador dela, e sendo assim tem funções que só ele pode executar como: Adicionar tarefas, pontuar a tarefa com o valor final discutido na votacao, puxar a próxima tarefa e finalizar a votaçao. Já os participantes poderão entrar na sala e poderão votar na tarefa atual mostrada na tela.
+
+## Sobre a estrutura 
+
+Optei por usar Clean Architecture para a estrutura, tentando respeitar também principios do SOLID. Para injecção de dependencias optei pelo GetIt por sua abordagem mais limpa e organizada. Para gerencia de estados optei por usar BLoC, tentando manter também o padrão do mesmo.
+Para a base de dados, estou utilizando Firebase, por ser rápido e prático de usar, além de ter atualizações em tempo real (por exemplo, assim que o participante vota o numero escolhido aparece na tela). Utilizei também GoRouter para uma melhor organização de rotas.
+
+## Pendencias
+
+Com o prazo, infelizmente não pude conlcuir algumas coisas, ainda precisava refatorar algumas partes do código para se adequar a estrutura, finalizar os estilos padrões de tela (alem de deixar um tiquinho mais bonito kk) e fazer a parte dos testes.
+
+
 
 
 
