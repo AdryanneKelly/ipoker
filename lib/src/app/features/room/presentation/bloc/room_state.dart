@@ -37,3 +37,21 @@ class RoomError extends RoomState {
   @override
   List<Object> get props => [message];
 }
+
+class RoomJoined extends RoomState {
+  final RoomEntity room;
+
+  const RoomJoined({required this.room});
+
+  @override
+  List<Object> get props => [room];
+}
+
+class RoomUpdated extends RoomState {
+  final RoomEntity room;
+
+  const RoomUpdated({required this.room});
+
+  @override
+  List<Object> get props => [room];
+}
