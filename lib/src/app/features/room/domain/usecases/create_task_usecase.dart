@@ -1,4 +1,4 @@
-import 'package:planning_poker_ifood/src/app/features/room/domain/entities/task_entity.dart';
+import 'package:planning_poker_ifood/src/core/features/task/domain/entities/task_entity.dart';
 import 'package:planning_poker_ifood/src/app/features/room/domain/repositories/room_repository_interface.dart';
 import 'package:planning_poker_ifood/src/core/typedefs/typedefs.dart';
 import 'package:planning_poker_ifood/src/core/usecases/usecase_interface.dart';
