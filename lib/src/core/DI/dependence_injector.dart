@@ -11,9 +11,16 @@ import 'package:planning_poker_ifood/src/app/features/room/data/datasources/room
 import 'package:planning_poker_ifood/src/app/features/room/data/repositories/room_repository_impl.dart';
 import 'package:planning_poker_ifood/src/app/features/room/domain/repositories/room_repository_interface.dart';
 import 'package:planning_poker_ifood/src/app/features/room/domain/usecases/create_room_usecase.dart';
-import 'package:planning_poker_ifood/src/app/features/room/domain/usecases/create_task_usecase.dart';
+import 'package:planning_poker_ifood/src/app/features/room/domain/usecases/finish_room_usecase.dart';
 import 'package:planning_poker_ifood/src/app/features/room/domain/usecases/get_room_usecase.dart';
+import 'package:planning_poker_ifood/src/app/features/room/domain/usecases/join_room_usecase.dart';
 import 'package:planning_poker_ifood/src/app/features/room/presentation/bloc/room_bloc.dart';
+import 'package:planning_poker_ifood/src/core/features/task/data/datasources/task_remote_datasource.dart';
+import 'package:planning_poker_ifood/src/core/features/task/data/repositories/task_repository_impl.dart';
+import 'package:planning_poker_ifood/src/core/features/task/domain/repositories/task_repository_interface.dart';
+import 'package:planning_poker_ifood/src/core/features/task/domain/usecases/create_task_usecase.dart';
+import 'package:planning_poker_ifood/src/core/features/task/domain/usecases/get_task_usecase.dart';
+import 'package:planning_poker_ifood/src/core/features/task/presentation/bloc/task_bloc.dart';
 import 'package:planning_poker_ifood/src/core/features/user/data/datasources/user_remote_datasource.dart';
 import 'package:planning_poker_ifood/src/core/features/user/data/repositories/user_repository_impl.dart';
 import 'package:planning_poker_ifood/src/core/features/user/domain/repositories/user_repository_interface.dart';
@@ -39,11 +46,14 @@ void setupDI() {
   injector.registerFactory<IRoomRepository>(() => RoomRepositoryImpl(roomDatasource: injector<RoomRemoteDatasource>()));
   injector.registerFactory<GetRoomUsecase>(() => GetRoomUsecase(roomRepository: injector<IRoomRepository>()));
   injector.registerFactory<CreateRoomUsecase>(() => CreateRoomUsecase(roomRepository: injector<IRoomRepository>()));
-  injector.registerFactory<CreateTaskUsecase>(() => CreateTaskUsecase(roomRepository: injector<IRoomRepository>()));
+  injector.registerFactory<JoinRoomUsecase>(() => JoinRoomUsecase(roomRepository: injector<IRoomRepository>()));
+  injector.registerFactory<FinishRoomUsecase>(() => FinishRoomUsecase(roomRepository: injector<IRoomRepository>()));
   injector.registerLazySingleton<RoomBloc>(() => RoomBloc(
       getRoomUsecase: injector<GetRoomUsecase>(),
       createRoomUsecase: injector<CreateRoomUsecase>(),
-      createTaskUsecase: injector<CreateTaskUsecase>()));
+        joinRoomUsecase: injector<JoinRoomUsecase>(),
+        finishRoomUsecase: injector<FinishRoomUsecase>()),
+  );
   injector.registerFactory<UserRemoteDatasource>(
       () => UserRemoteDatasource(firebaseFirestore: injector<FirebaseFirestore>()));
   injector.registerFactory<IUserRepository>(
@@ -51,4 +61,20 @@ void setupDI() {
   injector.registerFactory<GetUserUsecase>(() => GetUserUsecase(repository: injector<IUserRepository>()));
   injector.registerFactory<RegisterUserUsecase>(() => RegisterUserUsecase(repository: injector<IUserRepository>()));
   injector.registerLazySingleton(() => UserBloc(getUserUsecase: injector<GetUserUsecase>()));
+
+
+
+  injector.registerFactory<TaskRemoteDatasource>(
+      () => TaskRemoteDatasource(firebaseFirestore: injector<FirebaseFirestore>()));
+  injector.registerFactory<ITaskRepository>(
+      () => TaskRepositoryImpl(taskRemoteDatasource: injector<TaskRemoteDatasource>()));
+  injector.registerFactory<GetTaskUsecase>(() => GetTaskUsecase(taskRepository: injector<ITaskRepository>()));
+  // injector.registerFactory(() => CreateTaskUsecase(roomRepository: roomRepository))
+  injector.registerFactory<CreateTaskUsecase>(() => CreateTaskUsecase(taskRepository: injector<ITaskRepository>()));
+  injector.registerLazySingleton<TaskBloc>(
+    () => TaskBloc(
+      getTaskUsecase: injector<GetTaskUsecase>(),
+      createTaskUsecase: injector<CreateTaskUsecase>(),
+    ),
+  );
 }
